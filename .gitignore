@@ -1,0 +1,10 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+__pycache__/
+*.pyc
+
+# Lightroom catalog/preview artifacts (not part of this repo)
+*.lrcat
+*.lrdata/

@@ -1,0 +1,107 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="HALO+TERRA Generator 1.0">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+   xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
+   crs:PresetType="Normal"
+   crs:Cluster=""
+   crs:UUID="5ED2311C15734F4DB43A8A27FD923029"
+   crs:SupportsAmount="False"
+   crs:SupportsColor="True"
+   crs:SupportsMonochrome="False"
+   crs:SupportsHighDynamicRange="True"
+   crs:SupportsNormalDynamicRange="True"
+   crs:SupportsSceneReferred="True"
+   crs:SupportsOutputReferred="True"
+   crs:CameraModelRestriction=""
+   crs:Copyright=""
+   crs:ContactInfo=""
+   crs:Version="16.0"
+   crs:ProcessVersion="15.4"
+   crs:HasSettings="True"
+   crs:CameraProfile="Adobe Color"
+   crs:Exposure2012="0.35"
+   crs:Contrast2012="-12"
+   crs:Highlights2012="-35"
+   crs:Shadows2012="55"
+   crs:Whites2012="18"
+   crs:Blacks2012="18"
+   crs:Texture="-8"
+   crs:Clarity2012="-6"
+   crs:Dehaze="-9"
+   crs:Vibrance="14"
+   crs:Saturation="-8"
+   crs:HueAdjustmentRed="3"
+   crs:HueAdjustmentOrange="5"
+   crs:HueAdjustmentYellow="-4"
+   crs:HueAdjustmentGreen="10"
+   crs:HueAdjustmentBlue="6"
+   crs:SaturationAdjustmentRed="-4"
+   crs:SaturationAdjustmentOrange="-6"
+   crs:SaturationAdjustmentYellow="-18"
+   crs:SaturationAdjustmentGreen="-30"
+   crs:SaturationAdjustmentAqua="-15"
+   crs:SaturationAdjustmentBlue="-12"
+   crs:LuminanceAdjustmentRed="4"
+   crs:LuminanceAdjustmentOrange="13"
+   crs:LuminanceAdjustmentYellow="10"
+   crs:LuminanceAdjustmentGreen="8"
+   crs:LuminanceAdjustmentAqua="5"
+   crs:LuminanceAdjustmentBlue="6"
+   crs:SplitToningShadowHue="220"
+   crs:SplitToningShadowSaturation="6"
+   crs:SplitToningHighlightHue="45"
+   crs:SplitToningHighlightSaturation="8"
+   crs:SplitToningBalance="10"
+   crs:ColorGradeMidtoneHue="0"
+   crs:ColorGradeMidtoneSat="0"
+   crs:ColorGradeMidtoneLum="0"
+   crs:ColorGradeShadowLum="2"
+   crs:ColorGradeHighlightLum="0"
+   crs:ColorGradeGlobalHue="0"
+   crs:ColorGradeGlobalSat="0"
+   crs:ColorGradeGlobalLum="0"
+   crs:ColorGradeBlending="60"
+   crs:ShadowTint="6"
+   crs:RedHue="6"
+   crs:RedSaturation="6"
+   crs:GreenHue="12"
+   crs:GreenSaturation="5"
+   crs:BlueSaturation="18"
+   crs:ParametricShadows="20"
+   crs:ParametricDarks="12"
+   crs:ParametricLights="5"
+   crs:ParametricHighlights="-10"
+   crs:ParametricShadowSplit="25"
+   crs:ParametricMidtoneSplit="50"
+   crs:ParametricHighlightSplit="75"
+   crs:Sharpness="35"
+   crs:SharpenRadius="+1.0"
+   crs:SharpenDetail="25"
+   crs:SharpenEdgeMasking="0">
+   <crs:Name>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Daydream - Deep</rdf:li>
+    </rdf:Alt>
+   </crs:Name>
+   <crs:Group>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">HALO</rdf:li>
+    </rdf:Alt>
+   </crs:Group>
+   <crs:Description>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Bright &amp; airy. Weightless clean light; glowing skin, muted environment. [Deep skin]</rdf:li>
+    </rdf:Alt>
+   </crs:Description>
+   <crs:ToneCurvePV2012>
+    <rdf:Seq>
+      <rdf:li>0, 18</rdf:li>
+      <rdf:li>64, 68</rdf:li>
+      <rdf:li>128, 135</rdf:li>
+      <rdf:li>192, 205</rdf:li>
+      <rdf:li>255, 250</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>

@@ -1,0 +1,108 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="HALO+TERRA Generator 1.0">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+   xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
+   crs:PresetType="Normal"
+   crs:Cluster=""
+   crs:UUID="4D70267F42D84379ABA4A483425322F3"
+   crs:SupportsAmount="False"
+   crs:SupportsColor="True"
+   crs:SupportsMonochrome="False"
+   crs:SupportsHighDynamicRange="True"
+   crs:SupportsNormalDynamicRange="True"
+   crs:SupportsSceneReferred="True"
+   crs:SupportsOutputReferred="True"
+   crs:CameraModelRestriction=""
+   crs:Copyright=""
+   crs:ContactInfo=""
+   crs:Version="16.0"
+   crs:ProcessVersion="15.4"
+   crs:HasSettings="True"
+   crs:CameraProfile="Adobe Color"
+   crs:Exposure2012="-0.15"
+   crs:Contrast2012="18"
+   crs:Highlights2012="-40"
+   crs:Shadows2012="-8"
+   crs:Whites2012="-6"
+   crs:Blacks2012="-14"
+   crs:Texture="18"
+   crs:Clarity2012="16"
+   crs:Dehaze="18"
+   crs:Vibrance="10"
+   crs:Saturation="-12"
+   crs:HueAdjustmentRed="2"
+   crs:HueAdjustmentOrange="2"
+   crs:HueAdjustmentYellow="4"
+   crs:HueAdjustmentGreen="8"
+   crs:HueAdjustmentAqua="-2"
+   crs:HueAdjustmentBlue="6"
+   crs:HueAdjustmentPurple="4"
+   crs:SaturationAdjustmentRed="-6"
+   crs:SaturationAdjustmentOrange="-8"
+   crs:SaturationAdjustmentYellow="-16"
+   crs:SaturationAdjustmentGreen="-18"
+   crs:SaturationAdjustmentAqua="8"
+   crs:SaturationAdjustmentBlue="18"
+   crs:SaturationAdjustmentPurple="6"
+   crs:LuminanceAdjustmentRed="-4"
+   crs:LuminanceAdjustmentYellow="-2"
+   crs:LuminanceAdjustmentGreen="-6"
+   crs:LuminanceAdjustmentAqua="-4"
+   crs:LuminanceAdjustmentBlue="-16"
+   crs:SplitToningShadowHue="220"
+   crs:SplitToningShadowSaturation="20"
+   crs:SplitToningHighlightHue="40"
+   crs:SplitToningHighlightSaturation="10"
+   crs:SplitToningBalance="-10"
+   crs:ColorGradeMidtoneHue="210"
+   crs:ColorGradeMidtoneSat="6"
+   crs:ColorGradeMidtoneLum="0"
+   crs:ColorGradeShadowLum="-4"
+   crs:ColorGradeHighlightLum="0"
+   crs:ColorGradeGlobalHue="0"
+   crs:ColorGradeGlobalSat="0"
+   crs:ColorGradeGlobalLum="0"
+   crs:ColorGradeBlending="45"
+   crs:ShadowTint="8"
+   crs:RedHue="4"
+   crs:RedSaturation="2"
+   crs:GreenHue="10"
+   crs:GreenSaturation="-6"
+   crs:BlueHue="6"
+   crs:BlueSaturation="34"
+   crs:GrainAmount="10"
+   crs:GrainSize="22"
+   crs:GrainFrequency="50"
+   crs:PostCropVignetteAmount="-20"
+   crs:PostCropVignetteMidpoint="50"
+   crs:PostCropVignetteFeather="50"
+   crs:PostCropVignetteRoundness="0"
+   crs:PostCropVignetteStyle="1"
+   crs:PostCropVignetteHighlightContrast="0">
+   <crs:Name>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Alpine</rdf:li>
+    </rdf:Alt>
+   </crs:Name>
+   <crs:Group>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">TERRA</rdf:li>
+    </rdf:Alt>
+   </crs:Group>
+   <crs:Description>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Mountains / moody peaks. Cold valleys, warm-lit summits, deep atmospheric sky.</rdf:li>
+    </rdf:Alt>
+   </crs:Description>
+   <crs:ToneCurvePV2012>
+    <rdf:Seq>
+      <rdf:li>0, 8</rdf:li>
+      <rdf:li>50, 34</rdf:li>
+      <rdf:li>128, 128</rdf:li>
+      <rdf:li>206, 220</rdf:li>
+      <rdf:li>255, 252</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>

@@ -1,0 +1,89 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="HALO+TERRA Generator 1.0">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+   xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
+   crs:PresetType="Normal"
+   crs:Cluster=""
+   crs:UUID="013BBCB22B764E22A590CEE088912C15"
+   crs:SupportsAmount="False"
+   crs:SupportsColor="True"
+   crs:SupportsMonochrome="False"
+   crs:SupportsHighDynamicRange="True"
+   crs:SupportsNormalDynamicRange="True"
+   crs:SupportsSceneReferred="True"
+   crs:SupportsOutputReferred="True"
+   crs:CameraModelRestriction=""
+   crs:Copyright=""
+   crs:ContactInfo=""
+   crs:Version="16.0"
+   crs:ProcessVersion="15.4"
+   crs:HasSettings="True"
+   crs:CameraProfile="Adobe Color"
+   crs:Exposure2012="0.10"
+   crs:Contrast2012="6"
+   crs:Highlights2012="-18"
+   crs:Shadows2012="28"
+   crs:Whites2012="6"
+   crs:Blacks2012="2"
+   crs:Texture="6"
+   crs:Clarity2012="6"
+   crs:Dehaze="-3"
+   crs:Vibrance="12"
+   crs:Saturation="0"
+   crs:HueAdjustmentRed="2"
+   crs:HueAdjustmentOrange="3"
+   crs:HueAdjustmentYellow="2"
+   crs:HueAdjustmentGreen="6"
+   crs:HueAdjustmentBlue="2"
+   crs:SaturationAdjustmentRed="1"
+   crs:SaturationAdjustmentOrange="0"
+   crs:SaturationAdjustmentYellow="-6"
+   crs:SaturationAdjustmentGreen="-10"
+   crs:SaturationAdjustmentBlue="-4"
+   crs:LuminanceAdjustmentRed="2"
+   crs:LuminanceAdjustmentOrange="7"
+   crs:LuminanceAdjustmentBlue="2"
+   crs:SplitToningShadowHue="210"
+   crs:SplitToningShadowSaturation="4"
+   crs:SplitToningHighlightHue="45"
+   crs:SplitToningHighlightSaturation="4"
+   crs:SplitToningBalance="0"
+   crs:ColorGradeMidtoneHue="0"
+   crs:ColorGradeMidtoneSat="0"
+   crs:ColorGradeMidtoneLum="0"
+   crs:ColorGradeShadowLum="0"
+   crs:ColorGradeHighlightLum="0"
+   crs:ColorGradeGlobalHue="0"
+   crs:ColorGradeGlobalSat="0"
+   crs:ColorGradeGlobalLum="0"
+   crs:ColorGradeBlending="70"
+   crs:ShadowTint="4"
+   crs:RedSaturation="6"
+   crs:BlueSaturation="12">
+   <crs:Name>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">TrueGlow - Deep</rdf:li>
+    </rdf:Alt>
+   </crs:Name>
+   <crs:Group>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">HALO</rdf:li>
+    </rdf:Alt>
+   </crs:Group>
+   <crs:Description>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Natural no-filter realism. Honest skin with a faint healthy glow. [Deep skin]</rdf:li>
+    </rdf:Alt>
+   </crs:Description>
+   <crs:ToneCurvePV2012>
+    <rdf:Seq>
+      <rdf:li>0, 2</rdf:li>
+      <rdf:li>64, 62</rdf:li>
+      <rdf:li>128, 130</rdf:li>
+      <rdf:li>192, 198</rdf:li>
+      <rdf:li>255, 254</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>

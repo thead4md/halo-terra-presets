@@ -1,0 +1,104 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="HALO+TERRA Generator 1.0">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+   xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
+   crs:PresetType="Normal"
+   crs:Cluster=""
+   crs:UUID="EA683E1420BA49ABB0C736C468B3E405"
+   crs:SupportsAmount="False"
+   crs:SupportsColor="True"
+   crs:SupportsMonochrome="False"
+   crs:SupportsHighDynamicRange="True"
+   crs:SupportsNormalDynamicRange="True"
+   crs:SupportsSceneReferred="True"
+   crs:SupportsOutputReferred="True"
+   crs:CameraModelRestriction=""
+   crs:Copyright=""
+   crs:ContactInfo=""
+   crs:Version="16.0"
+   crs:ProcessVersion="15.4"
+   crs:HasSettings="True"
+   crs:CameraProfile="Adobe Color"
+   crs:Exposure2012="0.10"
+   crs:Contrast2012="14"
+   crs:Highlights2012="-30"
+   crs:Shadows2012="30"
+   crs:Whites2012="8"
+   crs:Blacks2012="-2"
+   crs:Texture="12"
+   crs:Clarity2012="14"
+   crs:Dehaze="2"
+   crs:Vibrance="16"
+   crs:Saturation="-4"
+   crs:HueAdjustmentRed="-1"
+   crs:HueAdjustmentOrange="6"
+   crs:HueAdjustmentYellow="-6"
+   crs:HueAdjustmentGreen="14"
+   crs:HueAdjustmentAqua="-8"
+   crs:HueAdjustmentBlue="4"
+   crs:SaturationAdjustmentRed="2"
+   crs:SaturationAdjustmentOrange="8"
+   crs:SaturationAdjustmentYellow="2"
+   crs:SaturationAdjustmentGreen="-24"
+   crs:SaturationAdjustmentAqua="4"
+   crs:SaturationAdjustmentBlue="12"
+   crs:LuminanceAdjustmentRed="-2"
+   crs:LuminanceAdjustmentOrange="3"
+   crs:LuminanceAdjustmentGreen="-6"
+   crs:LuminanceAdjustmentBlue="-6"
+   crs:SplitToningShadowHue="205"
+   crs:SplitToningShadowSaturation="8"
+   crs:SplitToningHighlightHue="40"
+   crs:SplitToningHighlightSaturation="16"
+   crs:SplitToningBalance="6"
+   crs:ColorGradeMidtoneHue="35"
+   crs:ColorGradeMidtoneSat="8"
+   crs:ColorGradeMidtoneLum="0"
+   crs:ColorGradeShadowLum="0"
+   crs:ColorGradeHighlightLum="0"
+   crs:ColorGradeGlobalHue="0"
+   crs:ColorGradeGlobalSat="0"
+   crs:ColorGradeGlobalLum="0"
+   crs:ColorGradeBlending="55"
+   crs:ShadowTint="8"
+   crs:RedHue="8"
+   crs:RedSaturation="10"
+   crs:GreenHue="18"
+   crs:BlueHue="8"
+   crs:BlueSaturation="28"
+   crs:GrainAmount="6"
+   crs:GrainSize="20"
+   crs:GrainFrequency="50"
+   crs:PostCropVignetteAmount="-10"
+   crs:PostCropVignetteMidpoint="50"
+   crs:PostCropVignetteFeather="50"
+   crs:PostCropVignetteRoundness="0"
+   crs:PostCropVignetteStyle="1"
+   crs:PostCropVignetteHighlightContrast="0">
+   <crs:Name>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Bronze - Deep</rdf:li>
+    </rdf:Alt>
+   </crs:Name>
+   <crs:Group>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">HALO</rdf:li>
+    </rdf:Alt>
+   </crs:Group>
+   <crs:Description>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Sun-kissed / fitness. Golden tan, defined detail, deep blues behind. [Deep skin]</rdf:li>
+    </rdf:Alt>
+   </crs:Description>
+   <crs:ToneCurvePV2012>
+    <rdf:Seq>
+      <rdf:li>0, 8</rdf:li>
+      <rdf:li>60, 48</rdf:li>
+      <rdf:li>128, 130</rdf:li>
+      <rdf:li>196, 210</rdf:li>
+      <rdf:li>255, 250</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>

@@ -1,0 +1,114 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="HALO+TERRA Generator 1.0">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+   xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
+   crs:PresetType="Normal"
+   crs:Cluster=""
+   crs:UUID="A85CB458D80F49C99333138F6C3CD502"
+   crs:SupportsAmount="False"
+   crs:SupportsColor="True"
+   crs:SupportsMonochrome="False"
+   crs:SupportsHighDynamicRange="True"
+   crs:SupportsNormalDynamicRange="True"
+   crs:SupportsSceneReferred="True"
+   crs:SupportsOutputReferred="True"
+   crs:CameraModelRestriction=""
+   crs:Copyright=""
+   crs:ContactInfo=""
+   crs:Version="16.0"
+   crs:ProcessVersion="15.4"
+   crs:HasSettings="True"
+   crs:CameraProfile="Adobe Color"
+   crs:Exposure2012="-0.25"
+   crs:Contrast2012="22"
+   crs:Highlights2012="-45"
+   crs:Shadows2012="-10"
+   crs:Whites2012="-8"
+   crs:Blacks2012="-18"
+   crs:Texture="12"
+   crs:Clarity2012="14"
+   crs:Dehaze="10"
+   crs:Vibrance="6"
+   crs:Saturation="-16"
+   crs:HueAdjustmentRed="3"
+   crs:HueAdjustmentOrange="4"
+   crs:HueAdjustmentYellow="10"
+   crs:HueAdjustmentGreen="14"
+   crs:HueAdjustmentAqua="-8"
+   crs:HueAdjustmentBlue="-10"
+   crs:SaturationAdjustmentRed="-8"
+   crs:SaturationAdjustmentOrange="-14"
+   crs:SaturationAdjustmentYellow="-36"
+   crs:SaturationAdjustmentGreen="-50"
+   crs:SaturationAdjustmentAqua="-10"
+   crs:SaturationAdjustmentBlue="6"
+   crs:LuminanceAdjustmentRed="-4"
+   crs:LuminanceAdjustmentOrange="4"
+   crs:LuminanceAdjustmentYellow="-6"
+   crs:LuminanceAdjustmentGreen="-10"
+   crs:LuminanceAdjustmentAqua="-6"
+   crs:LuminanceAdjustmentBlue="-10"
+   crs:SplitToningShadowHue="215"
+   crs:SplitToningShadowSaturation="18"
+   crs:SplitToningHighlightHue="38"
+   crs:SplitToningHighlightSaturation="10"
+   crs:SplitToningBalance="-8"
+   crs:ColorGradeMidtoneHue="30"
+   crs:ColorGradeMidtoneSat="5"
+   crs:ColorGradeMidtoneLum="0"
+   crs:ColorGradeShadowLum="-4"
+   crs:ColorGradeHighlightLum="0"
+   crs:ColorGradeGlobalHue="0"
+   crs:ColorGradeGlobalSat="0"
+   crs:ColorGradeGlobalLum="0"
+   crs:ColorGradeBlending="50"
+   crs:ShadowTint="6"
+   crs:RedHue="4"
+   crs:RedSaturation="2"
+   crs:GreenHue="14"
+   crs:GreenSaturation="-6"
+   crs:BlueHue="6"
+   crs:BlueSaturation="30"
+   crs:ParametricShadows="-12"
+   crs:ParametricDarks="-6"
+   crs:ParametricLights="6"
+   crs:ParametricHighlights="4"
+   crs:ParametricShadowSplit="25"
+   crs:ParametricMidtoneSplit="50"
+   crs:ParametricHighlightSplit="75"
+   crs:GrainAmount="12"
+   crs:GrainSize="25"
+   crs:GrainFrequency="50"
+   crs:PostCropVignetteAmount="-22"
+   crs:PostCropVignetteMidpoint="50"
+   crs:PostCropVignetteFeather="50"
+   crs:PostCropVignetteRoundness="0"
+   crs:PostCropVignetteStyle="1"
+   crs:PostCropVignetteHighlightContrast="0">
+   <crs:Name>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Noir Lumiere - Medium</rdf:li>
+    </rdf:Alt>
+   </crs:Name>
+   <crs:Group>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">HALO</rdf:li>
+    </rdf:Alt>
+   </crs:Group>
+   <crs:Description>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Moody cinematic / dark luxury. Muted frame, deep blacks, skin kept alive. [Medium skin]</rdf:li>
+    </rdf:Alt>
+   </crs:Description>
+   <crs:ToneCurvePV2012>
+    <rdf:Seq>
+      <rdf:li>0, 8</rdf:li>
+      <rdf:li>48, 30</rdf:li>
+      <rdf:li>128, 128</rdf:li>
+      <rdf:li>208, 222</rdf:li>
+      <rdf:li>255, 252</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>

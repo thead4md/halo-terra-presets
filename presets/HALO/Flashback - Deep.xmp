@@ -1,0 +1,104 @@
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="HALO+TERRA Generator 1.0">
+ <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about=""
+   xmlns:crs="http://ns.adobe.com/camera-raw-settings/1.0/"
+   crs:PresetType="Normal"
+   crs:Cluster=""
+   crs:UUID="ED5A6689657B429F80B495774F5C0CFF"
+   crs:SupportsAmount="False"
+   crs:SupportsColor="True"
+   crs:SupportsMonochrome="False"
+   crs:SupportsHighDynamicRange="True"
+   crs:SupportsNormalDynamicRange="True"
+   crs:SupportsSceneReferred="True"
+   crs:SupportsOutputReferred="True"
+   crs:CameraModelRestriction=""
+   crs:Copyright=""
+   crs:ContactInfo=""
+   crs:Version="16.0"
+   crs:ProcessVersion="15.4"
+   crs:HasSettings="True"
+   crs:CameraProfile="Adobe Color"
+   crs:Exposure2012="-0.10"
+   crs:Contrast2012="18"
+   crs:Highlights2012="-50"
+   crs:Shadows2012="30"
+   crs:Whites2012="-12"
+   crs:Blacks2012="0"
+   crs:Texture="16"
+   crs:Clarity2012="10"
+   crs:Dehaze="2"
+   crs:Vibrance="14"
+   crs:Saturation="-2"
+   crs:HueAdjustmentRed="3"
+   crs:HueAdjustmentOrange="1"
+   crs:HueAdjustmentYellow="6"
+   crs:HueAdjustmentGreen="8"
+   crs:HueAdjustmentAqua="-6"
+   crs:HueAdjustmentBlue="-4"
+   crs:HueAdjustmentMagenta="4"
+   crs:SaturationAdjustmentRed="-2"
+   crs:SaturationAdjustmentOrange="-4"
+   crs:SaturationAdjustmentYellow="-10"
+   crs:SaturationAdjustmentGreen="-20"
+   crs:SaturationAdjustmentAqua="6"
+   crs:SaturationAdjustmentBlue="10"
+   crs:SaturationAdjustmentMagenta="4"
+   crs:LuminanceAdjustmentRed="-2"
+   crs:LuminanceAdjustmentOrange="1"
+   crs:LuminanceAdjustmentGreen="-4"
+   crs:LuminanceAdjustmentBlue="-4"
+   crs:SplitToningShadowHue="220"
+   crs:SplitToningShadowSaturation="10"
+   crs:SplitToningHighlightHue="40"
+   crs:SplitToningHighlightSaturation="6"
+   crs:SplitToningBalance="0"
+   crs:ColorGradeMidtoneHue="0"
+   crs:ColorGradeMidtoneSat="0"
+   crs:ColorGradeMidtoneLum="0"
+   crs:ColorGradeShadowLum="0"
+   crs:ColorGradeHighlightLum="0"
+   crs:ColorGradeGlobalHue="0"
+   crs:ColorGradeGlobalSat="0"
+   crs:ColorGradeGlobalLum="0"
+   crs:ColorGradeBlending="50"
+   crs:ShadowTint="6"
+   crs:RedSaturation="6"
+   crs:GreenHue="8"
+   crs:BlueSaturation="20"
+   crs:GrainAmount="18"
+   crs:GrainSize="18"
+   crs:GrainFrequency="60"
+   crs:PostCropVignetteAmount="-8"
+   crs:PostCropVignetteMidpoint="50"
+   crs:PostCropVignetteFeather="50"
+   crs:PostCropVignetteRoundness="0"
+   crs:PostCropVignetteStyle="1"
+   crs:PostCropVignetteHighlightContrast="0">
+   <crs:Name>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Flashback - Deep</rdf:li>
+    </rdf:Alt>
+   </crs:Name>
+   <crs:Group>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">HALO</rdf:li>
+    </rdf:Alt>
+   </crs:Group>
+   <crs:Description>
+    <rdf:Alt>
+     <rdf:li xml:lang="x-default">Digicam / direct flash. Y2K candid with recovered hotspots and sensor crunch. [Deep skin]</rdf:li>
+    </rdf:Alt>
+   </crs:Description>
+   <crs:ToneCurvePV2012>
+    <rdf:Seq>
+      <rdf:li>0, 6</rdf:li>
+      <rdf:li>60, 46</rdf:li>
+      <rdf:li>128, 132</rdf:li>
+      <rdf:li>196, 214</rdf:li>
+      <rdf:li>255, 250</rdf:li>
+    </rdf:Seq>
+   </crs:ToneCurvePV2012>
+  </rdf:Description>
+ </rdf:RDF>
+</x:xmpmeta>
