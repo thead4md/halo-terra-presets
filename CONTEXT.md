@@ -129,6 +129,7 @@ halo-terra-presets/
 │   └── validate_context.py
 ├── CLAUDE.md
 ├── CONTEXT.md
+├── generate.log
 ├── generate_presets.py
 ├── LICENSE
 └── README.md
@@ -167,6 +168,8 @@ _No open TODOs found._
 
 <!-- AUTO:START:recent_commits -->
 ```
+158d0b1 Merge pull request #1 from thead4md/claude/add-context-sync
+aa99bd5 fix: address Copilot review findings on the context-sync install
 d001523 chore: install claude-context-sync
 34139d1 HALO + TERRA: 49 Lightroom .xmp presets, docs, and generator
 ```
@@ -174,5 +177,5 @@ d001523 chore: install claude-context-sync
 
 ---
 <!-- AUTO:START:meta -->
-_Generated in 0.1s. Stack: Python._
+_Generated in 0.6s. Stack: Python._
 <!-- AUTO:END:meta -->
