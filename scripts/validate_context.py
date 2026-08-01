@@ -13,8 +13,9 @@ import argparse
 import json
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
+from typing import Any
 
 REQUIRED_SECTIONS = [
     "project_overview",
@@ -26,8 +27,14 @@ REQUIRED_SECTIONS = [
 ]
 
 CONTAMINATION_PATTERNS = [
-    ".venv", "node_modules", "dist/", "build/", "__pycache__",
-    "site-packages", "PIL/", "Pillow",
+    ".venv",
+    "node_modules",
+    "dist/",
+    "build/",
+    "__pycache__",
+    "site-packages",
+    "PIL/",
+    "Pillow",
 ]
 
 SECRET_PATTERNS = [
@@ -50,9 +57,7 @@ def check_sections(content: str) -> tuple[list[str], list[str]]:
         if start not in content or end not in content:
             errors.append(f"Missing required section: {section}")
             continue
-        body = re.search(
-            rf"{re.escape(start)}\s*(.*?)\s*{re.escape(end)}", content, re.DOTALL
-        )
+        body = re.search(rf"{re.escape(start)}\s*(.*?)\s*{re.escape(end)}", content, re.DOTALL)
         if not body or not body.group(1).strip():
             warnings.append(f"Section '{section}' is present but empty")
     return errors, warnings
@@ -61,10 +66,13 @@ def check_sections(content: str) -> tuple[list[str], list[str]]:
 def check_contamination(content: str) -> list[str]:
     # Only scan inside AUTO sections (not the generator's own exclusion-list comments)
     warnings = []
-    auto_sections = re.findall(r"<!-- AUTO:START:\w+ -->(.*?)<!-- AUTO:END:\w+ -->", content, re.DOTALL)
+    auto_sections = re.findall(
+        r"<!-- AUTO:START:\w+ -->(.*?)<!-- AUTO:END:\w+ -->", content, re.DOTALL
+    )
     # Only flag lines that look like actual tree/table entries, not description prose
     combined_lines = [
-        line for section in auto_sections
+        line
+        for section in auto_sections
         for line in section.splitlines()
         if re.search(r"(├──|└──|│\s+|\|\s+`)", line)  # tree or table-row lines only
     ]
@@ -97,20 +105,28 @@ def check_size(context_path: Path) -> list[str]:
 
 def check_test_count(content: str) -> list[str]:
     warnings = []
-    m = re.search(r"<!-- AUTO:START:test_count -->(.*?)<!-- AUTO:END:test_count -->", content, re.DOTALL)
+    m = re.search(
+        r"<!-- AUTO:START:test_count -->(.*?)<!-- AUTO:END:test_count -->", content, re.DOTALL
+    )
     if m and "(unknown)" in m.group(1):
-        warnings.append("Test count is '(unknown)' — pytest may not be installed or tests directory not found")
+        warnings.append(
+            "Test count is '(unknown)' — pytest may not be installed or tests directory not found"
+        )
     return warnings
 
 
 def check_claude_md(claude_path: Path) -> list[str]:
     warnings = []
     if not claude_path.exists():
-        warnings.append(f"CLAUDE.md not found at {claude_path} — run bootstrap.sh to create it")
+        warnings.append(
+            f"CLAUDE.md not found at {claude_path} — run bootstrap.sh from "
+            "https://github.com/thead4md/claude-context-sync to create it "
+            "(bootstrap.sh itself is not vendored into installed repos)"
+        )
         return warnings
 
-    mtime = datetime.fromtimestamp(claude_path.stat().st_mtime, tz=timezone.utc)
-    age_days = (datetime.now(timezone.utc) - mtime).days
+    mtime = datetime.fromtimestamp(claude_path.stat().st_mtime, tz=UTC)
+    age_days = (datetime.now(UTC) - mtime).days
     if age_days > CLAUDE_MD_MAX_AGE_DAYS:
         warnings.append(
             f"CLAUDE.md was last modified {age_days} days ago — consider reviewing it for accuracy"
@@ -126,7 +142,7 @@ def check_timestamp(content: str) -> list[str]:
     return warnings
 
 
-def validate(context_path: Path, claude_path: Path) -> dict:
+def validate(context_path: Path, claude_path: Path) -> dict[str, Any]:
     errors: list[str] = []
     warnings: list[str] = []
 
@@ -157,11 +173,11 @@ def validate(context_path: Path, claude_path: Path) -> dict:
         "errors": errors,
         "warnings": warnings,
         "context_size_kb": round(context_path.stat().st_size / 1024, 1),
-        "checked_at": datetime.now(timezone.utc).isoformat(),
+        "checked_at": datetime.now(UTC).isoformat(),
     }
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(description="Validate CONTEXT.md quality.")
     parser.add_argument("--context", default="CONTEXT.md")
     parser.add_argument("--claude", default="CLAUDE.md")

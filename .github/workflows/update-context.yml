@@ -5,8 +5,6 @@ on:
     branches: [main, master]
     paths-ignore:
       - "CONTEXT.md"
-      - "*.md"
-      - "docs/**"
   pull_request:
     branches: [main, master]
   schedule:
@@ -15,13 +13,18 @@ on:
 
 jobs:
   update-context:
-    uses: thead4md/claude-context-sync/.github/workflows/reusable-context-update.yml@main
+    # Pinned to a specific commit, not @main/'latest': main was carrying
+    # bugs fixed at thead4md/claude-context-sync#6 (glob-matching exclusions,
+    # a hardcoded path from another repo, a pytest-output regex, Python
+    # detection without a config file -- the last one is exactly what this
+    # repo hit, since generate_presets.py has no pyproject.toml/setup.py).
+    uses: thead4md/claude-context-sync/.github/workflows/reusable-context-update.yml@1d74f12b36f94368f3a6409a756792a99f323994
     permissions:
       contents: write
       issues: write
       pull-requests: write
     with:
       python-version: "3.12"
-      context-sync-ref: "latest"
+      context-sync-ref: "1d74f12b36f94368f3a6409a756792a99f323994"
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}

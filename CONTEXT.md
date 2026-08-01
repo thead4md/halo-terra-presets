@@ -45,8 +45,9 @@ Three deliberate engineering choices, so nothing surprises you:
 ### Stack
 | Key | Value |
 |-----|-------|
-| language | Unknown |
-| config_file | N/A |
+| language | Python |
+| config_file | N/A (no pyproject.toml/setup.py — detected via loose .py files) |
+| extras | GitHub Actions |
 <!-- AUTO:END:project_overview -->
 
 ## Tech Stack
@@ -54,7 +55,8 @@ Three deliberate engineering choices, so nothing surprises you:
 <!-- AUTO:START:tech_stack -->
 | Technology | Version / Detail |
 |------------|-----------------|
-| Language | Unknown |
+| Language | Python |
+| Infrastructure | GitHub Actions |
 <!-- AUTO:END:tech_stack -->
 
 ## Directory Tree
@@ -62,6 +64,9 @@ Three deliberate engineering choices, so nothing surprises you:
 <!-- AUTO:START:directory_tree -->
 ```
 halo-terra-presets/
+├── .github
+│   └── workflows
+│       └── update-context.yml
 ├── docs
 │   ├── HALO_Preset_System.md
 │   └── TERRA_Landscape_Set.md
@@ -123,6 +128,7 @@ halo-terra-presets/
 │   ├── generate_context.py
 │   └── validate_context.py
 ├── CLAUDE.md
+├── CONTEXT.md
 ├── generate_presets.py
 ├── LICENSE
 └── README.md
@@ -132,7 +138,11 @@ halo-terra-presets/
 ## Module Map
 
 <!-- AUTO:START:module_map -->
-_Module map available for Python projects only._
+| Module | Purpose | Key Symbols |
+|--------|---------|-------------|
+| `generate_presets.py` | HALO + TERRA preset generator. | `clamp`, `huecl`, `xesc`, `fmt`, `scalar_attrs` |
+| `scripts/generate_context.py` | Auto-generates CONTEXT.md for any project. | `detect_stack`, `gen_project_overview`, `gen_directory_tree`, `gen_tech_stack`, `gen_env_vars` |
+| `scripts/validate_context.py` | Validates the quality of a generated CONTEXT.md. | `check_sections`, `check_contamination`, `check_secrets`, `check_size`, `check_test_count` |
 <!-- AUTO:END:module_map -->
 
 ## Environment Variables
@@ -157,11 +167,12 @@ _No open TODOs found._
 
 <!-- AUTO:START:recent_commits -->
 ```
+d001523 chore: install claude-context-sync
 34139d1 HALO + TERRA: 49 Lightroom .xmp presets, docs, and generator
 ```
 <!-- AUTO:END:recent_commits -->
 
 ---
 <!-- AUTO:START:meta -->
-_Generated in 0.0s. Stack: Unknown._
+_Generated in 0.1s. Stack: Python._
 <!-- AUTO:END:meta -->

@@ -2,8 +2,9 @@
 
 > **IMPORTANT: Read [CONTEXT.md](CONTEXT.md) before doing anything in this project.**
 
-CONTEXT.md is auto-generated on every push and contains the authoritative, up-to-date
-snapshot of this codebase. Always read it first so you understand:
+CONTEXT.md is kept current by automation (see "How CONTEXT.md is Updated" below)
+and contains the authoritative, up-to-date snapshot of this codebase. Always read
+it first so you understand:
 
 - Current architecture and module map
 - Active TODOs and known constraints
@@ -16,10 +17,10 @@ snapshot of this codebase. Always read it first so you understand:
 
 ```bash
 # Install dependencies
-pip install -r requirements.txt  # or: pip install pillow (only real dep)
+# No dependencies -- generate_presets.py uses only the Python standard library (os, uuid)
 
 # Run tests
-# no test suite — this is a static preset/asset library
+# no test suite -- this is a static preset/asset library
 
 # Run the application
 python generate_presets.py
@@ -44,7 +45,7 @@ python generate_presets.py
 ## How CONTEXT.md is Updated
 
 CONTEXT.md is regenerated automatically:
-- On every push to `main`/`master`
+- On pushes to `main`/`master` (except commits that only touch `CONTEXT.md` itself)
 - On every pull request
 - Daily at 03:00 UTC
 

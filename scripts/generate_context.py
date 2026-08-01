@@ -11,24 +11,42 @@ Usage:
 
 import argparse
 import ast
+import fnmatch
 import json
-import os
 import re
 import subprocess
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
+from typing import Any
 
 # --------------------------------------------------------------------------- #
 # Config
 # --------------------------------------------------------------------------- #
 
 EXCLUDED_DIRS = {
-    ".git", ".venv", "venv", "env", ".env", "node_modules", "dist", "build",
-    "__pycache__", ".tox", ".mypy_cache", ".pytest_cache", ".ruff_cache",
-    "coverage", ".coverage", ".eggs", "*.egg-info", ".idea", ".vscode",
-    ".DS_Store", "vendor",
+    ".git",
+    ".venv",
+    "venv",
+    "env",
+    ".env",
+    "node_modules",
+    "dist",
+    "build",
+    "__pycache__",
+    ".tox",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    "coverage",
+    ".coverage",
+    ".eggs",
+    "*.egg-info",
+    ".idea",
+    ".vscode",
+    ".DS_Store",
+    "vendor",
 }
 
 EXCLUDED_FILE_PREFIXES = ("._",)
@@ -59,9 +77,18 @@ SECRET_PATTERNS = [
 # Helpers
 # --------------------------------------------------------------------------- #
 
+
+def _matches_excluded_dir(part: str) -> bool:
+    # Most entries in EXCLUDED_DIRS are literal names; a few (e.g. *.egg-info)
+    # are glob patterns. fnmatch on a literal pattern degrades to an exact
+    # match, so this one call handles both without a separate literal set.
+    return any(fnmatch.fnmatch(part, pattern) for pattern in EXCLUDED_DIRS)
+
+
 def _is_excluded(path: Path, root: Path) -> bool:
     for part in path.relative_to(root).parts:
-        if part in EXCLUDED_DIRS or part.startswith(".") and part not in {".github", ".claude"}:
+        is_hidden = part.startswith(".") and part not in {".github", ".claude"}
+        if _matches_excluded_dir(part) or is_hidden:
             return True
         if any(part.startswith(pfx) for pfx in EXCLUDED_FILE_PREFIXES):
             return True
@@ -70,9 +97,7 @@ def _is_excluded(path: Path, root: Path) -> bool:
 
 def _run(cmd: list[str], cwd: Path, timeout: int = 30) -> str:
     try:
-        result = subprocess.run(
-            cmd, cwd=str(cwd), capture_output=True, text=True, timeout=timeout
-        )
+        result = subprocess.run(cmd, cwd=str(cwd), capture_output=True, text=True, timeout=timeout)
         return result.stdout.strip()
     except Exception:
         return ""
@@ -82,9 +107,7 @@ def _replace_section(content: str, name: str, new_body: str) -> str:
     start_tag = f"<!-- AUTO:START:{name} -->"
     end_tag = f"<!-- AUTO:END:{name} -->"
     replacement = f"{start_tag}\n{new_body.strip()}\n{end_tag}"
-    pattern = re.compile(
-        rf"{re.escape(start_tag)}.*?{re.escape(end_tag)}", re.DOTALL
-    )
+    pattern = re.compile(rf"{re.escape(start_tag)}.*?{re.escape(end_tag)}", re.DOTALL)
     if pattern.search(content):
         return pattern.sub(replacement, content)
     # Append if section doesn't exist yet
@@ -92,7 +115,7 @@ def _replace_section(content: str, name: str, new_body: str) -> str:
 
 
 def _update_timestamp(content: str) -> str:
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    today = datetime.now(UTC).strftime("%Y-%m-%d")
     pattern = re.compile(r"(Last updated:\s*)\d{4}-\d{2}-\d{2}")
     if pattern.search(content):
         return pattern.sub(rf"\g<1>{today}", content)
@@ -103,7 +126,8 @@ def _update_timestamp(content: str) -> str:
 # Language / stack detection
 # --------------------------------------------------------------------------- #
 
-def detect_stack(root: Path) -> dict:
+
+def detect_stack(root: Path) -> dict[str, str]:
     stack = {}
 
     if (root / "pyproject.toml").exists():
@@ -153,6 +177,13 @@ def detect_stack(root: Path) -> dict:
         stack["language"] = "Java (Maven)"
         stack["config_file"] = "pom.xml"
 
+    elif list(root.glob("*.py")):
+        # No config file at all, but real Python scripts sit right at the
+        # root (small utility repos, one-off generators). Reporting
+        # "Unknown" here is worse than a config-file-less "Python".
+        stack["language"] = "Python"
+        stack["config_file"] = "N/A (no pyproject.toml/setup.py — detected via loose .py files)"
+
     else:
         stack["language"] = "Unknown"
         stack["config_file"] = "N/A"
@@ -179,7 +210,8 @@ def detect_stack(root: Path) -> dict:
 # Section generators
 # --------------------------------------------------------------------------- #
 
-def gen_project_overview(root: Path, stack: dict) -> str:
+
+def gen_project_overview(root: Path, stack: dict[str, str]) -> str:
     lines = []
 
     # Try README first
@@ -192,8 +224,8 @@ def gen_project_overview(root: Path, stack: dict) -> str:
         lines.append("")
 
     lines.append("### Stack")
-    lines.append(f"| Key | Value |")
-    lines.append(f"|-----|-------|")
+    lines.append("| Key | Value |")
+    lines.append("|-----|-------|")
     for k, v in stack.items():
         lines.append(f"| {k} | {v} |")
 
@@ -204,7 +236,7 @@ def gen_directory_tree(root: Path) -> str:
     lines = ["```"]
     file_count = 0
 
-    def walk(path: Path, prefix: str = "", depth: int = 0):
+    def walk(path: Path, prefix: str = "", depth: int = 0) -> None:
         nonlocal file_count
         if depth > MAX_TREE_DEPTH or file_count > MAX_TREE_FILES:
             return
@@ -233,7 +265,7 @@ def gen_directory_tree(root: Path) -> str:
     return "\n".join(lines)
 
 
-def gen_tech_stack(root: Path, stack: dict) -> str:
+def gen_tech_stack(root: Path, stack: dict[str, str]) -> str:
     rows = [
         "| Technology | Version / Detail |",
         "|------------|-----------------|",
@@ -270,12 +302,14 @@ def gen_tech_stack(root: Path, stack: dict) -> str:
     return "\n".join(rows)
 
 
-def gen_env_vars(root: Path, stack: dict) -> str:
+def gen_env_vars(root: Path, stack: dict[str, str]) -> str:
     lang = stack.get("language", "")
     found: dict[str, str] = {}
 
     if "Python" in lang:
-        pattern = re.compile(r'os\.environ\.get\(\s*["\']([A-Z_][A-Z0-9_]+)["\'](?:\s*,\s*["\']([^"\']*)["\'])?\s*\)')
+        pattern = re.compile(
+            r'os\.environ\.get\(\s*["\']([A-Z_][A-Z0-9_]+)["\'](?:\s*,\s*["\']([^"\']*)["\'])?\s*\)'
+        )
         for py_file in root.rglob("*.py"):
             if _is_excluded(py_file, root):
                 continue
@@ -288,7 +322,7 @@ def gen_env_vars(root: Path, stack: dict) -> str:
                 continue
 
     elif "Node" in lang or "TypeScript" in lang:
-        pattern = re.compile(r'process\.env\.([A-Z_][A-Z0-9_]+)')
+        pattern = re.compile(r"process\.env\.([A-Z_][A-Z0-9_]+)")
         for ext in ("*.js", "*.ts", "*.mjs"):
             for f in root.rglob(ext):
                 if _is_excluded(f, root):
@@ -358,17 +392,21 @@ def gen_open_todos(root: Path) -> str:
     return "\n".join(results)
 
 
-def gen_test_count(root: Path, stack: dict) -> str:
+def gen_test_count(root: Path, stack: dict[str, str]) -> str:
     lang = stack.get("language", "")
     count = "(unknown)"
 
     if "Python" in lang:
         # Detect test directory
-        test_dirs = [d for d in ["tests", "test", "mailmind/tests"] if (root / d).is_dir()]
+        test_dirs = [d for d in ["tests", "test"] if (root / d).is_dir()]
         test_arg = test_dirs[0] if test_dirs else "."
         out = _run(["python", "-m", "pytest", test_arg, "--collect-only", "-q"], root, timeout=60)
         if out:
+            # pytest's collection summary shows up in either order depending on
+            # version/verbosity: "N tests collected" or "collected N items".
             m = re.search(r"(\d+)\s+(?:test|item)s?\s+(?:selected|collected)", out)
+            if not m:
+                m = re.search(r"collected\s+(\d+)\s+items?", out)
             if m:
                 count = m.group(1)
 
@@ -381,7 +419,7 @@ def gen_test_count(root: Path, stack: dict) -> str:
     elif "Go" in lang:
         out = _run(["go", "test", "./...", "-list", ".*"], root, timeout=30)
         if out:
-            count = str(len([l for l in out.splitlines() if l.startswith("Test")]))
+            count = str(len([line for line in out.splitlines() if line.startswith("Test")]))
 
     return f"**{count}** tests detected."
 
@@ -396,7 +434,7 @@ def gen_recent_commits(root: Path) -> str:
     return "```\n" + out + "\n```"
 
 
-def gen_module_map(root: Path, stack: dict) -> str:
+def gen_module_map(root: Path, stack: dict[str, str]) -> str:
     lang = stack.get("language", "")
     if "Python" not in lang:
         return "_Module map available for Python projects only._"
@@ -420,11 +458,11 @@ def gen_module_map(root: Path, stack: dict) -> str:
             docstring = ast.get_docstring(tree) or ""
             purpose = docstring.split("\n")[0][:80] if docstring else ""
 
+            def_types = (ast.ClassDef, ast.FunctionDef, ast.AsyncFunctionDef)
             symbols = []
             for node in ast.walk(tree):
-                if isinstance(node, (ast.ClassDef, ast.FunctionDef, ast.AsyncFunctionDef)):
-                    if not node.name.startswith("_"):
-                        symbols.append(node.name)
+                if isinstance(node, def_types) and not node.name.startswith("_"):
+                    symbols.append(node.name)
                 if len(symbols) >= 5:
                     break
 
@@ -440,6 +478,7 @@ def gen_module_map(root: Path, stack: dict) -> str:
 # --------------------------------------------------------------------------- #
 # Secret scan
 # --------------------------------------------------------------------------- #
+
 
 def scan_for_secrets(content: str) -> list[str]:
     findings = []
@@ -509,9 +548,9 @@ CONTEXT_TEMPLATE = """\
 """
 
 
-def _scaffold_context(root: Path, stack: dict) -> str:
+def _scaffold_context(root: Path, stack: dict[str, str]) -> str:
     name = stack.get("name") or root.name
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    today = datetime.now(UTC).strftime("%Y-%m-%d")
     return CONTEXT_TEMPLATE.format(name=name, today=today)
 
 
@@ -519,7 +558,8 @@ def _scaffold_context(root: Path, stack: dict) -> str:
 # Main
 # --------------------------------------------------------------------------- #
 
-def generate(root: Path, output: Path) -> dict:
+
+def generate(root: Path, output: Path) -> dict[str, Any]:
     t0 = time.monotonic()
 
     stack = detect_stack(root)
@@ -560,7 +600,9 @@ def generate(root: Path, output: Path) -> dict:
     # Secret scan before writing
     secrets = scan_for_secrets(content)
     if secrets:
-        print("WARNING: Potential secrets detected in CONTEXT.md — aborting write!", file=sys.stderr)
+        print(
+            "WARNING: Potential secrets detected in CONTEXT.md — aborting write!", file=sys.stderr
+        )
         for s in secrets:
             print(f"  {s}", file=sys.stderr)
         sys.exit(2)
@@ -577,7 +619,7 @@ def generate(root: Path, output: Path) -> dict:
     }
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(description="Generate CONTEXT.md for a project.")
     parser.add_argument("--root", default=".", help="Project root directory")
     parser.add_argument("--output", default="CONTEXT.md", help="Output file path")
@@ -592,7 +634,7 @@ def main():
     size_kb = result["size_bytes"] / 1024
     if size_kb > 50:
         print(
-            f"WARNING: CONTEXT.md is {size_kb:.1f} KB — consider trimming for AI context efficiency.",
+            f"WARNING: CONTEXT.md is {size_kb:.1f} KB — consider trimming for context efficiency.",
             file=sys.stderr,
         )
 
