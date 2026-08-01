@@ -1,0 +1,30 @@
+name: Update CONTEXT.md
+
+on:
+  push:
+    branches: [main, master]
+    paths-ignore:
+      - "CONTEXT.md"
+  pull_request:
+    branches: [main, master]
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-context:
+    # Pinned to a specific commit, not @main/'latest': main was carrying
+    # bugs fixed at thead4md/claude-context-sync#6 (glob-matching exclusions,
+    # a hardcoded path from another repo, a pytest-output regex, Python
+    # detection without a config file -- the last one is exactly what this
+    # repo hit, since generate_presets.py has no pyproject.toml/setup.py).
+    uses: thead4md/claude-context-sync/.github/workflows/reusable-context-update.yml@1d74f12b36f94368f3a6409a756792a99f323994
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    with:
+      python-version: "3.12"
+      context-sync-ref: "1d74f12b36f94368f3a6409a756792a99f323994"
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
